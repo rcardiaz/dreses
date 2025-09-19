@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient to right, #6a11cb 0%, #2575fc 100%;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-gap: 15px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card.matched .card-inner {
+    opacity: 0.7; /* Ligeramente más tenue cuando coincide */
+    pointer-events: none; /* No se puede hacer clic de nuevo */
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #fff;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-front {
+    background-color: #ff6f61; /* Un color vibrante para el frente */
+}
+
+.card-back {
+    background-color: #4CAF50; /* Un color para la parte trasera */
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+img {
+  width: 200px;   
+  height: 200px;  
+  object-fit: cover; 
+  border-radius: 8px;
+}
